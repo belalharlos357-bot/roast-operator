@@ -1,3 +1,4 @@
+// roast-operator: prints the one-line entry from entry.txt
 import { readFileSync as read} from "node:fs";
 import { fileURLToPath as toPath} from "node:url";
 import { dirname as dirOf, join as joinPath} from "node:path";
