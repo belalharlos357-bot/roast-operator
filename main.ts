@@ -1,8 +1,9 @@
-// roast-operator: prints the one-line entry from entry.txt
-import { readFileSync as read} from "node:fs";
-import { fileURLToPath as toPath} from "node:url";
-import { dirname as dirOf, join as joinPath} from "node:path";
+// roast-operator entry: print the one-line entry from entry.txt
+// The entry is a single line; trailing whitespace is trimmed before printing.
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
-const here = dirOf(toPath(import.meta.url));
-const report = read(joinPath(here, "entry.txt"), "utf8").trim();
-console.log(report);
+const dir = dirname(fileURLToPath(import.meta.url));
+const line = readFileSync(join(dir, "entry.txt"), "utf8").trim();
+process.stdout.write(line + "\n");
